@@ -1,0 +1,10 @@
+{
+  "id": "infobox-scroll",
+  "name": "Infobox Scroll",
+  "version": "1.0.0",
+  "minAppVersion": "1.6.6",
+  "description": "Flip through versions of an infobox, or through images and whole image folders, with arrow buttons.",
+  "author": "DVelascoHerruzo",
+  "authorUrl": "https://github.com/DVelascoHerruzo",
+  "isDesktopOnly": false
+}

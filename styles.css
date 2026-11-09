@@ -1,0 +1,106 @@
+/* ==========================================================================
+   Infobox Scroll
+   > [!infobox|scroll]   versions split by ---
+   > [!infobox|gallery]  images, or `folder: Path`
+   ========================================================================== */
+
+.callout.ifs-box {
+  position: relative;
+}
+
+/* Slides that aren't showing, and the --- / folder: lines themselves */
+.ifs-box .ifs-hidden,
+.ifs-box .ifs-sep {
+  display: none !important;
+}
+
+/* Images written on consecutive lines are separated by <br>; with only one
+   image visible those would leave empty lines. */
+.ifs-gallery > .callout-content p:has(> .image-embed) > br {
+  display: none;
+}
+
+/* ---- arrows -------------------------------------------------------------- */
+.ifs-box > .ifs-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 44px;
+  border-radius: var(--radius-s);
+  background-color: color-mix(in srgb, var(--background-primary) 75%, transparent);
+  color: var(--text-normal);
+  box-shadow: var(--shadow-s);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 120ms ease, background-color 120ms ease;
+  user-select: none;
+}
+.ifs-box > .ifs-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+.ifs-box:hover > .ifs-arrow {
+  opacity: 0.9;
+}
+.ifs-box > .ifs-arrow:hover {
+  opacity: 1;
+  background-color: var(--background-primary);
+  color: var(--text-accent);
+}
+.ifs-box > .ifs-prev {
+  left: 4px;
+}
+.ifs-box > .ifs-next {
+  right: 4px;
+}
+
+/* ---- counter ("2 / 5") ---------------------------------------------------- */
+.ifs-box > .ifs-counter {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  z-index: 3;
+  padding: 0 6px;
+  border-radius: var(--radius-l);
+  background-color: color-mix(in srgb, var(--background-primary) 75%, transparent);
+  color: var(--text-muted);
+  font-size: var(--font-smallest);
+  line-height: 1.6;
+  pointer-events: none;
+}
+.ifs-box > .ifs-counter:empty {
+  display: none;
+}
+
+.ifs-box.ifs-single > .ifs-arrow,
+.ifs-box.ifs-single > .ifs-counter {
+  display: none;
+}
+
+/* ---- folder galleries ---------------------------------------------------- */
+.ifs-folder img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.ifs-caption {
+  padding: 2px 6px 4px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-smaller);
+}
+.ifs-folder.ifs-empty .ifs-caption {
+  padding: var(--size-4-3);
+  font-style: italic;
+}
+
+/* ---- insert modal -------------------------------------------------------- */
+.ifs-modal-hint {
+  display: block;
+  color: var(--text-muted);
+}
